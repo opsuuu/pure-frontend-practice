@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* 主輪播圖大小 */
+.carousel-slider {
+  width: 40dvw;
+  height: 100%;
+  /* background: #fed4d4; */
+  position: relative;
+  aspect-ratio: 4/3;
+}
+
+.item {
+  position: absolute;
+  width: 21dvw;
+  height: 15dvw;
+  top: calc(15dvw / 2);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.item.previous {
+  left: -26dvw;
+  border: 2px solid #fff;
+  opacity: 1;
+}
+
+.item.next {
+  left: 45dvw;
+  border: 2px solid #fff;
+  opacity: 1;
+}
+
+.carousel-button {
+  display: flex;
+  position: absolute;
+  width: 47dvw;
+  /* background: #f53434; */
+  justify-content: space-between;
+  color: #fff;
+}
+
+.prev i,
+.next i {
+  font-size: 40px;
+  text-shadow: 0 0 15px #fff;
+  cursor: pointer;
+
+  &:hover {
+    color: #3e2572;
+  }
+}
+
+.carousel-pagnation {
+  position: absolute;
+  width: 30dvw;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: -50px;
+}
+
+.carousel-pagnation .page {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background: #4e3f6f;
+  }
+}
+
+.item.active {
+  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px #fff;
+}
+
+.page.active {
+  background: #4e3f6f;
+  width: 20px;
+  border-radius: 8px;
+}
+
+/* 平板 */
+@media screen and (max-width: 769px) {
+  .prev i,
+  .next i {
+    font-size: 30px;
+  }
+  .carousel-pagnation .page {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 577px) {
+  /* 主輪播圖大小 */
+  .carousel-slider {
+    width: 80dvw;
+  }
+
+  .item {
+    width: 20dvw;
+  }
+
+  .item.previous {
+    left: 0;
+    border: none;
+    opacity: 0;
+  }
+
+  .item.next {
+    left: 0;
+    border: none;
+    opacity: 0;
+  }
+  .carousel-button {
+    width: 93dvw;
+  }
+
+  .prev i,
+  .next i {
+    font-size: 35px;
+  }
+
+  .carousel-pagnation {
+    width: 50dvw;
+    height: 25px;
+    bottom: -40px;
+  }
+}
+
+@media screen and (max-width: 425px){
+  .carousel-pagnation {
+    width: 70dvw;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .prev i,
+  .next i {
+    font-size: 25px;
+  }
+}
